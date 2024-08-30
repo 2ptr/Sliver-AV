@@ -31,4 +31,4 @@ Shellcode dropper solution will download, decompress, decrypt shellcode and exec
 
 3. Update loader script
 
-4. Use CLR AMSI bypass for entire process unhook
+4. Use `amsiscanbuffer()` bypass for entire process unhook including CLR
