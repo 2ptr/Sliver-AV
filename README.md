@@ -23,7 +23,7 @@ Stage profile shellcode
 
 Shellcode dropper solution will download, decompress, decrypt shellcode and execute. Best way is to reflectively load via PowerShell as it is .NET assembly, and the dropper is not evasive at all (you need AMSI bypass).
 
-1. Read in solution DLL assembly
+1. Read in solution DLL assembly. The solution MUST BE `.NET FRAMEWORK` (~4.0).
 
 `get-content -encoding byte -path .\sliverloader.dll | clip`
 
