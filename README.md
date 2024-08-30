@@ -1,4 +1,4 @@
-# Sliver-AV
+# Bypass AV with Sliver c2
 Dropper + reflective load script for bypassing AV with sliver c2
 
 Taken from [this article](https://medium.com/@youcef.s.kelouaz/writing-a-sliver-c2-powershell-stager-with-shellcode-compression-and-aes-encryption-9725c0201ea8).
@@ -19,6 +19,11 @@ Stage profile shellcode
 ## Dropper
 
 Shellcode dropper solution will download, decompress, decrypt shellcode and execute. Best way is to reflectively load via PowerShell as it is .NET assembly, and the dropper is not evasive
-at all (you need AMSI bypass)
+at all (you need AMSI bypass).
 
-Use CLR AMSI bypass for entire process unhook
+Read in solution DLL assembly
+`get-content -encoding byte -path .\sliverloader.dll | clip`
+
+
+
+Use CLR AMSI bypass for entire process unhook.
