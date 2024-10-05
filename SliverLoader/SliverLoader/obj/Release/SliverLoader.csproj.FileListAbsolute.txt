@@ -1,0 +1,6 @@
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\bin\Release\SliverLoader.dll
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\bin\Release\SliverLoader.pdb
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\obj\Release\SliverLoader.csproj.AssemblyReference.cache
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\obj\Release\SliverLoader.csproj.CoreCompileInputs.cache
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\obj\Release\SliverLoader.dll
+C:\Users\jake1\Desktop\Tools\Sliver-AV\SliverLoader\SliverLoader\obj\Release\SliverLoader.pdb

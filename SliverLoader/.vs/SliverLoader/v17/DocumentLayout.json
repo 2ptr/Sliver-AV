@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jake1\\Desktop\\Tools\\Sliver-AV\\SliverLoader\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B0B3BD2-BBEF-4D21-A298-4B98A047F75C}|SliverLoader\\SliverLoader.csproj|c:\\users\\jake1\\desktop\\tools\\sliver-av\\sliverloader\\sliverloader\\sliverloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B0B3BD2-BBEF-4D21-A298-4B98A047F75C}|SliverLoader\\SliverLoader.csproj|solutionrelative:sliverloader\\sliverloader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SliverLoader.cs",
+              "DocumentMoniker": "C:\\Users\\jake1\\Desktop\\Tools\\Sliver-AV\\SliverLoader\\SliverLoader\\SliverLoader.cs",
+              "RelativeDocumentMoniker": "SliverLoader\\SliverLoader.cs",
+              "ToolTip": "C:\\Users\\jake1\\Desktop\\Tools\\Sliver-AV\\SliverLoader\\SliverLoader\\SliverLoader.cs",
+              "RelativeToolTip": "SliverLoader\\SliverLoader.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-05T16:46:28.882Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
